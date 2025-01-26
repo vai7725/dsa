@@ -22,6 +22,24 @@ void bubbleSort(int arr[], int n) // O(n^2)
     }
 }
 
+void selectionSort(int arr[], int n) // O(n^2)
+{
+    for (int i = 0; i < n; i++)
+    {
+        int smallestIdx = i;
+
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[smallestIdx])
+            {
+                smallestIdx = j;
+            }
+        }
+
+        swap(arr[i], arr[smallestIdx]);
+    }
+}
+
 void printArray(int arr[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -40,9 +58,13 @@ int main()
     cout << "Original array" << endl;
     printArray(arr, n);
 
-    bubbleSort(arr, n);
+    // bubbleSort(arr, n);
 
-    cout << "Sorted array using bubble sort" << endl;
+    // cout << "Sorted array using bubble sort" << endl;
+    // printArray(arr, n);
+
+    cout << "Sorted array using selection sort" << endl;
+    selectionSort(arr, n);
     printArray(arr, n);
 
     cout << endl;
